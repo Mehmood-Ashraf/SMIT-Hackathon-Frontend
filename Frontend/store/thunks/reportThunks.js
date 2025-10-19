@@ -1,6 +1,6 @@
 // reportThunks.js
 import { createAsyncThunk } from "@reduxjs/toolkit"
-import { reportAPI } from "../api/reportAPI"
+import { reportAPI } from "../api/reportApi"
 
 // payload is expected to be a FormData instance
 export const uploadReport = createAsyncThunk(
