@@ -9,7 +9,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsi
 export default function VitalDetailPage() {
   const router = useRouter()
   const params = useParams()
-  const vitalType = params.type as string
+  const vitalType = params.type
 
   // Mock data for chart
   const chartData = [

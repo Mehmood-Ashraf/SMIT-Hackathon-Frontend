@@ -19,7 +19,7 @@ const navItems = [
   { icon: FileText, label: "Reports", href: "/reports" },
   { icon: Activity, label: "Vitals", href: "/vitals" },
   { icon: BarChart3, label: "Analytics", href: "/analytics" },
-  { icon: Calendar, label: "Timeline", href: "/timeline" },
+  { icon: Calendar, label: "Family", href: "/family" },
   { icon: MessageCircle, label: "Chat", href: "/chat" },
   { icon: Settings, label: "Settings", href: "/settings" },
 ]

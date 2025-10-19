@@ -71,7 +71,7 @@ export default function VitalsPage() {
     },
   ])
 
-  const getStatusColor = (status: string) => {
+  const getStatusColor = (status) => {
     switch (status) {
       case "Normal":
         return "bg-green-100 text-green-800"
@@ -84,7 +84,7 @@ export default function VitalsPage() {
     }
   }
 
-  const getTrendIcon = (trend: string) => {
+  const getTrendIcon = (trend) => {
     switch (trend) {
       case "up":
         return <TrendingUp className="w-4 h-4 text-red-500" />

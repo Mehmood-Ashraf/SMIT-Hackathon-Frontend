@@ -41,7 +41,7 @@ const dummyQADetail = {
   ],
 }
 
-export default function QADetailPage({ params }: { params: { id: string } }) {
+export default function QADetailPage({ params }) {
   const router = useRouter()
   const [language, setLanguage] = useState<"en" | "ur">("en")
   const [userHelpful, setUserHelpful] = useState<"helpful" | "notHelpful" | null>(null)

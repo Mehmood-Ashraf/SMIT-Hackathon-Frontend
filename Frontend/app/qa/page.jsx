@@ -78,7 +78,7 @@ export default function QAPage() {
   const router = useRouter()
   const [searchQuery, setSearchQuery] = useState("")
   const [selectedCategory, setSelectedCategory] = useState("All")
-  const [language, setLanguage] = useState<"en" | "ur">("en")
+  const [language, setLanguage] = useState('en')
 
   const categories = ["All", "Blood Test", "Vitals", "General", "Imaging", "Medications"]
 

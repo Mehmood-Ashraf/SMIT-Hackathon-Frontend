@@ -43,11 +43,11 @@ export default function ReportsPage() {
     },
   ])
 
-  const handleDelete = (id: number) => {
+  const handleDelete = (id) => {
     setReports(reports.filter((r) => r.id !== id))
   }
 
-  const getStatusColor = (status: string) => {
+  const getStatusColor = (status) => {
     switch (status) {
       case "Analyzed":
         return "bg-green-100 text-green-800"

@@ -23,7 +23,7 @@ export default function AskQuestionPage() {
   const [description, setDescription] = useState("")
   const [selectedReport, setSelectedReport] = useState("")
   const [category, setCategory] = useState("")
-  const [tags, setTags] = useState<string[]>([])
+  const [tags, setTags] = useState([])
   const [tagInput, setTagInput] = useState("")
 
   const categories = ["Blood Test", "Vitals", "Imaging", "Medications", "General", "Other"]
@@ -35,7 +35,7 @@ export default function AskQuestionPage() {
     }
   }
 
-  const handleRemoveTag = (tag: string) => {
+  const handleRemoveTag = (tag) => {
     setTags(tags.filter((t) => t !== tag))
   }
 

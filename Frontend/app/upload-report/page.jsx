@@ -1,6 +1,5 @@
 "use client"
 
-import type React from "react"
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
@@ -15,7 +14,7 @@ export default function UploadReportPage() {
     title: "",
     reportType: "Blood Test",
     date: "",
-    file: null as File | null,
+    file: null,
   })
   const [uploading, setUploading] = useState(false)
 
@@ -31,13 +30,13 @@ export default function UploadReportPage() {
     "Other",
   ]
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = (e) => {
     if (e.target.files?.[0]) {
       setFormData({ ...formData, file: e.target.files[0] })
     }
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     setUploading(true)
 

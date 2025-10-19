@@ -1,63 +1,56 @@
+"use client";
 
-"use client"
-
-import { useState } from "react"
-import { useRouter } from "next/navigation"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Card } from "@/components/ui/card"
-import { Heart, Mail, Lock, User } from "lucide-react"
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Card } from "@/components/ui/card";
+import { Heart, Mail, Lock, User } from "lucide-react";
+import axios from "axios";
 
 export default function RegisterPage() {
-  const router = useRouter()
+  const router = useRouter();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
     password: "",
     confirmPassword: "",
-  })
-  const [isLoading, setIsLoading] = useState(false)
+  });
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleRegister = async (e) => {
-    
-    
-    e.preventDefault()
+    e.preventDefault();
     try {
-    setIsLoading(true)
- 
-      const response = await axios.post(`https://smit-hackathon-backend-phi.vercel.app/api/auth/register`, {
-   userName:`${firstName} ${lastName}`,
-        email,
-    password,
-  });
-  console.log(response)
-  if (response.data.status) {
-    localStorage.setItem("authToken", response?.data?.data?.token,)
-      router.push("/dashboard")
-      setIsLoading(false)
-    } else {
-      alert('something went wrong')
-    setIsLoading(false)
-    
-  }
-    } catch (error) {
-         alert('something went wrong')
-      console.log(error)
-    }
-    // DUMMY DATA - Replace with real API call
-    // setTimeout(() => {
+      setIsLoading(true);
 
-    //   localStorage.setItem("authToken", "dummy-token-" + Date.now())
-    //   router.push("/dashboard")
-    //   setIsLoading(false)
-    // }, 1000)
-  }
+      const response = await axios.post(
+        `https://smit-hackathon-backend-phi.vercel.app/api/auth/register`,
+        {
+          userName: `${formData.firstName} ${formData.lastName}`,
+          email : formData.email,
+          password : formData.password,
+        }
+      );
+      console.log(response);
+      if (response.data.status) {
+        localStorage.setItem("authToken", response?.data?.data?.token);
+        router.push("/dashboard");
+        setIsLoading(false);
+      } else {
+        alert("something went wrong");
+        setIsLoading(false);
+      }
+    } catch (error) {
+      alert("something went wrong");
+      console.log(error);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-secondary/20 to-background flex items-center justify-center p-4">
@@ -68,7 +61,9 @@ export default function RegisterPage() {
         </div>
 
         <h1 className="text-2xl font-bold text-center mb-2">Create Account</h1>
-        <p className="text-center text-muted-foreground mb-8">Join HealthMate today</p>
+        <p className="text-center text-muted-foreground mb-8">
+          Join HealthMate today
+        </p>
 
         <form onSubmit={handleRegister} className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
@@ -155,11 +150,14 @@ export default function RegisterPage() {
 
         <p className="text-center text-sm text-muted-foreground mt-6">
           Already have an account?{" "}
-          <button onClick={() => router.push("/login")} className="text-primary hover:underline font-medium">
+          <button
+            onClick={() => router.push("/login")}
+            className="text-primary hover:underline font-medium"
+          >
             Sign in
           </button>
         </p>
       </Card>
     </div>
-  )
+  );
 }

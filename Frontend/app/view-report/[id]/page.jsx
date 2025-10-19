@@ -46,7 +46,7 @@ const dummyReport = {
   },
 }
 
-export default function ViewReportPage({ params }: { params: { id: string } }) {
+export default function ViewReportPage({ params }) {
   const router = useRouter()
   const [language, setLanguage] = useState<"en" | "ur">("en")
 
