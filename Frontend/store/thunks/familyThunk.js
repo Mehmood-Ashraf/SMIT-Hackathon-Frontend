@@ -1,6 +1,6 @@
 // src/store/familyThunks.js
 import { createAsyncThunk } from "@reduxjs/toolkit"
-import { familyAPI } from "../api/familyAPI"
+import { familyAPI } from "../api/familyApi"
 
 export const fetchFamilyMembers = createAsyncThunk(
   "family/fetchMembers",
